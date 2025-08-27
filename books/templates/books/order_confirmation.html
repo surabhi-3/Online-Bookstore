@@ -1,0 +1,19 @@
+{% extends 'books/base.html' %}
+
+{% block title %}Order Confirmation{% endblock %}
+
+{% block content %}
+<h2>Thank you for your order!</h2>
+<p>Your order has been successfully placed.</p>
+<p>Order {{ order.id }} placed on {{ order.created_at }}</p>
+<p>Total Paid: ₹{{ order.total_price }}</p>
+
+<h3>Order Details:</h3>
+<ul>
+    {% for item in order.items.all %}
+    <li>{{ item.book.title }} — Quantity: {{ item.quantity }} — Price: ₹{{ item.price }}</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'home' %}" class="btn btn-primary mt-3">Back to Home</a>
+{% endblock %}

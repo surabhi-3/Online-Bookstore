@@ -1,0 +1,35 @@
+{% extends 'books/base.html' %}
+
+{% block title %}{{ category.name }} Books{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>📚 Books in "{{ category.name }}"</h2>
+
+    {% if books %}
+    <div class="row mt-4">
+        {% for book in books %}
+        <div class="col-md-3 mb-4">
+            <div class="card h-100">
+                <a href="{% url 'book_detail' book.id %}">
+                    <img src="{{ book.cover_image.url }}" class="card-img-top" alt="{{ book.title }}">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="{% url 'book_detail' book.id %}" class="text-decoration-none text-dark">
+                            {{ book.title }}
+                        </a>
+                    </h5>
+                    <p class="card-text">₹{{ book.price }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>No books found in this category.</p>
+    {% endif %}
+
+    <a href="{% url 'home' %}" class="btn btn-secondary mt-4">⬅ Back to Home</a>
+</div>
+{% endblock %}

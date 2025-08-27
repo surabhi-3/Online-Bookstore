@@ -1,0 +1,10 @@
+{% extends 'books/base.html' %}
+{% block title %}Thank You{% endblock %}
+{% block content %}
+<div class="container mt-5 text-center">
+    <h2>🎉 Thank You for Your Purchase!</h2>
+    <p>Your order has been placed successfully.</p>
+    <p>You may view your order in <a href="{% url 'my_orders' %}">My Orders</a>.</p>
+    <a href="{% url 'home' %}" class="btn btn-primary mt-4">Back to Home</a>
+</div>
+{% endblock %}

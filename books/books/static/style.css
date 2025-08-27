@@ -1,0 +1,97 @@
+/* Navbar */
+.navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 25px;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.navbar strong {
+    font-size: 1.4em;
+    color: #1e3c72;
+}
+
+.navbar a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 500;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Buttons */
+.btn-sm {
+    font-size: 0.85em;
+    padding: 6px 12px;
+}
+
+/* Page container */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* General body */
+body {
+    background-color: #f9f9f9;
+    font-family: 'Roboto', sans-serif;
+}
+/* books/static/books/styles.css */
+
+/* Navbar tweaks */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Card styling */
+.card {
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+.card-footer {
+    background-color: #f8f9fa;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-success {
+    border-radius: 25px;
+    padding: 10px 25px;
+    font-weight: 600;
+}
+
+/* Footer (if you add one later) */
+footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    text-align: center;
+    color: #555;
+    margin-top: 50px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 576px) {
+    .container {
+        padding: 0 15px;
+    }
+}

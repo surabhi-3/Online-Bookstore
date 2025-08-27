@@ -1,0 +1,32 @@
+{% extends 'books/base.html' %}
+
+{% block title %}{{ book.title }}{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            {% if book.cover_image %}
+            <img src="{{ book.cover_image.url }}" class="img-fluid" alt="{{ book.title }}">
+            {% endif %}
+        </div>
+        <div class="col-md-8">
+            <h2>{{ book.title }}</h2>
+            <p><strong>Author:</strong> {{ book.author }}</p>
+            <p><strong>Language:</strong> {{ book.get_language_display }}</p>
+            <p><strong>Category:</strong> {{ book.category.name }}</p> {# if you added category #}
+
+            <p><strong>Price:</strong> ₹{{ book.price }}</p>
+            <p><strong>Stock:</strong> {{ book.stock }}</p>
+            <p><strong>Description:</strong><br>{{ book.description }}</p>
+            <form method="post" action="{% url 'add_to_cart' book.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary mt-3">🛒 Add to Cart</button>
+            </form>
+
+
+            <a href="{% url 'home' %}" class="btn btn-secondary mt-3">⬅ Back to Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

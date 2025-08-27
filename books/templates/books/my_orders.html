@@ -1,0 +1,31 @@
+{% extends 'books/base.html' %}
+{% block title %}My Orders{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>📦 My Orders</h2>
+    {% if orders %}
+    {% for order in orders %}
+    <div class="card mb-4">
+        <div class="card-header">
+            <strong>Order #{{ order.id }}</strong> - {{ order.created_at|date:"M d, Y H:i" }}
+        </div>
+        <ul class="list-group list-group-flush">
+            {% for item in order.items.all %}
+            <li class="list-group-item">
+                <strong>{{ item.book.title }}</strong> by {{ item.book.author }}<br>
+                Quantity: {{ item.quantity }} × ₹{{ item.price }} = ₹{{ item.price|floatformat:2|add:"0"|floatformat:"2"
+                }}
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="card-footer text-end">
+            <strong>Total: ₹{{ order.total_price }}</strong>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>You have no orders yet.</p>
+    {% endif %}
+</div>
+{% endblock %}
